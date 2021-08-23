@@ -1,3 +1,4 @@
+import './style/index.less'
 import { h1, person } from './m1'
 
 function sum(a: number, b: number): number {

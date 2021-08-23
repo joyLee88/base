@@ -12,7 +12,7 @@ module.exports = { // webpack中所有配置信息写在这里
         }
     },
     module: { // 指定webpack打包时候使用模块
-        rules: [ // 指定加载的规则
+        rules: [ // 指定加载ts的规则
             {
                 test: /\.ts$/, // test指定规则生效的文件，匹配所以ts结尾的文件
                 // use: 'ts-loader', // 使用loader
@@ -44,6 +44,32 @@ module.exports = { // webpack中所有配置信息写在这里
                     'ts-loader'
                 ],
                 exclude: /node-modules/ // 排除文件
+            },
+            // 设置less文件的处理
+            {
+                test: /\.less$/,
+                use: [ // 先less、再css，最好style，最终引入到项目中
+                    "style-loader",
+                    "css-loader",
+                    // 引入postcss
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "postcss-preset-env",
+                                        {
+                                            // 兼容浏览器最新两个版本
+                                            browsers: 'last 2 versions'
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    "less-loader"
+                ]
             }
         ]
     },
