@@ -8,7 +8,8 @@ module.exports = { // webpack中所有配置信息写在这里
         path: path.resolve(__dirname, 'dist'), // 指定打包文件的目录; 直接path:"./dist"也行；通过path能直接把路径拼出来
         filename: "bundle.js", //将打包后的文件命名
         environment: {
-            arrowFunction: false  // babel已经做到内部箭头函数转换了，webpack也别自动生成包一个啊
+            arrowFunction: false,  // babel已经做到内部箭头函数转换了，webpack也别自动生成包一个啊
+            const: false
         }
     },
     module: { // 指定webpack打包时候使用模块
