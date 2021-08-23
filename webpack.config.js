@@ -58,8 +58,8 @@ module.exports = { // webpack中所有配置信息写在这里
                             postcssOptions: {
                                 plugins: [
                                     [
-                                        "postcss-preset-env",
-                                        {
+                                        "postcss-preset-env", // 预置环境
+                                        { // 设置浏览器
                                             // 兼容浏览器最新两个版本
                                             browsers: 'last 2 versions'
                                         }
