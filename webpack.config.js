@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = { // webpack中所有配置信息写在这里
     entry: "./src/index.ts", // 指定入口文件
+    mode: "development",
+    devtool: 'cheap-module-source-map', //添加sourcemap映射
     output: { // 指定打包文件所在目录
         path: path.resolve(__dirname, 'dist'), // 指定打包文件的目录; 直接path:"./dist"也行；通过path能直接把路径拼出来
         filename: "bundle.js", //将打包后的文件命名
